@@ -3,7 +3,12 @@ const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const Employee = require("./lib/employee");
 const inquirer = require("inquirer");
+const fs = require("fs");
+const path = require("path");
+const profileHtml = require("./src/htmlProfile.js");
 
+const distFolder = path.resolve(__dirname, "dist");
+const htmlFile = path.join(distFolder, "profile.html");
 
 employeeArray = [];
 
@@ -171,7 +176,10 @@ function teamPrompts() {
 
   // creates an html with
   function buildHtml() {
-    console.log(employeeArray)
+    const html = profileHtml(employeeArray);
+    fs.writeFileSync(htmlFile, html, "UTF-8");
+
+    console.log("Team profile created!");
   }
 
   buildTeam();

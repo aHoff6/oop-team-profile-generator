@@ -1,0 +1,12 @@
+.team-heading {
+    background-color: #4910f1;
+    padding: 1rem;
+  }
+  .team-heading h1 {
+    text-align: center;
+    color: white;
+  }
+  .team-area {
+    display: flex;
+    justify-content: center;
+  }
